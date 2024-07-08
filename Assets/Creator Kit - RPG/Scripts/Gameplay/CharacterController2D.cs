@@ -42,9 +42,13 @@ namespace RPGM.Gameplay
                 {
                     UpdateAnimator(nextMoveCommand);
                     state = State.Moving;
+                    nextMoveCommand = Vector3.zero;
                 }
-
-                nextMoveCommand = Vector3.zero;
+                else
+                {
+                    nextMoveCommand = Vector3.zero;
+                    UpdateAnimator(nextMoveCommand);
+                }
             }
         }
 
@@ -54,11 +58,11 @@ namespace RPGM.Gameplay
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
 
             if (transform.position == targetPosition)
-            {
+            {  
                 state = State.Idle;
                 UpdateAnimator(nextMoveCommand);
             }
-
+            
             // Flip the sprite based on movement direction
             if (nextMoveCommand.x != 0)
             {
@@ -94,6 +98,7 @@ namespace RPGM.Gameplay
             {
                 transform.position = pixelPerfectCamera.RoundToPixel(transform.position);
             }
+            Debug.Log("Current State: " + state + "targetPosition" + targetPosition + "transform.position" + transform.position);
         }
 
         void Awake()

@@ -50,7 +50,7 @@ namespace RPGM.UI
         void CharacterControl()
         {
             Vector3 moveDirection = Vector3.zero;
-
+            
             if (Input.GetKey(KeyCode.UpArrow))
             {
                 moveDirection += Vector3.up;
