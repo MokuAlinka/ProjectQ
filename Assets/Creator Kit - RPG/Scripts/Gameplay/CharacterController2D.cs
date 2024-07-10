@@ -16,7 +16,7 @@ namespace RPGM.Gameplay
         public float speed = 1;
         public Vector3 nextMoveCommand;
         public Animator animator;
-        public Tilemap wallTilemap; // 引用瓦片地图
+        public List<Tilemap> tilemaps;
 
         new Rigidbody2D rigidbody2D;
         SpriteRenderer spriteRenderer;
@@ -58,11 +58,11 @@ namespace RPGM.Gameplay
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
 
             if (transform.position == targetPosition)
-            {  
+            {
                 state = State.Idle;
                 UpdateAnimator(nextMoveCommand);
             }
-            
+
             // Flip the sprite based on movement direction
             if (nextMoveCommand.x != 0)
             {
@@ -98,7 +98,7 @@ namespace RPGM.Gameplay
             {
                 transform.position = pixelPerfectCamera.RoundToPixel(transform.position);
             }
-            Debug.Log("Current State: " + state + "targetPosition" + targetPosition + "transform.position" + transform.position);
+            //Debug.Log("Current State: " + state + "targetPosition" + targetPosition + "transform.position" + transform.position);
         }
 
         void Awake()
@@ -106,17 +106,24 @@ namespace RPGM.Gameplay
             rigidbody2D = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             pixelPerfectCamera = GameObject.FindObjectOfType<PixelPerfectCamera>();
-            wallTilemap = GameObject.Find("WallTilemap").GetComponent<Tilemap>();
+            
         }
 
         bool IsWall(Vector3 targetPosition)
         {
             // 将目标位置转换为瓦片地图的网格位置
-            Vector3Int cellPosition = wallTilemap.WorldToCell(targetPosition);
-
+            Vector3Int cellPosition = tilemaps[0].WorldToCell(targetPosition);
             // 检查该位置是否有瓦片（即墙壁）
-            TileBase tile = wallTilemap.GetTile(cellPosition);
-            return tile != null;
+            foreach (var tilemap in tilemaps)
+            {
+                if (tilemap.GetTile(cellPosition) != null)
+                {
+                    Debug.Log(tilemap.GetTile(cellPosition));
+                    return true;
+                }
+            }
+            Debug.Log("No WallTilemap");
+            return false;
         }
     }
 }

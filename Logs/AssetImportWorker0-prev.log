@@ -1,0 +1,677 @@
+Using pre-set license
+Built from '2022.3/china_unity/release' branch; Version is '2022.3.8f1c1 (4ec8ee1b2212) revision 5163246'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit CoreCountrySpecific' Language: 'zh' Physical Memory: 65275 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+D:\ToolsSama\Unity\2022.3.8f1c1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/github/ProjectQ
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52751
+Successfully changed project path to: D:/github/ProjectQ
+D:/github/ProjectQ
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [74744] Host "[IP] 192.168.1.27 [Port] 0 [Flags] 2 [Guid] 1667608521 [EditorId] 1667608521 [Version] 1048832 [Id] WindowsEditor(7,Star) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [74744] Host "[IP] 192.168.1.27 [Port] 0 [Flags] 2 [Guid] 1667608521 [EditorId] 1667608521 [Version] 1048832 [Id] WindowsEditor(7,Star) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 31 workers.
+Refreshing native plugins compatible for Editor in 13.40 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.8f1c1 (4ec8ee1b2212)
+[Subsystems] Discovering subsystems at path D:/ToolsSama/Unity/2022.3.8f1c1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/github/ProjectQ/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4060 Laptop GPU (ID=0x28e0)
+    Vendor:   NVIDIA
+    VRAM:     7972 MB
+    Driver:   31.0.15.4633
+Initialize mono
+Mono path[0] = 'D:/ToolsSama/Unity/2022.3.8f1c1/Editor/Data/Managed'
+Mono path[1] = 'D:/ToolsSama/Unity/2022.3.8f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/ToolsSama/Unity/2022.3.8f1c1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56516
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/ToolsSama/Unity/2022.3.8f1c1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/ToolsSama/Unity/2022.3.8f1c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.005502 seconds.
+- Loaded All Assemblies, in  0.242 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.161 seconds
+Domain Reload Profiling: 401ms
+	BeginReloadAssembly (80ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (0ms)
+	RebuildCommonClasses (22ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (40ms)
+	LoadAllAssembliesAndSetupDomain (91ms)
+		LoadAssemblies (76ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (89ms)
+			TypeCache.Refresh (88ms)
+				TypeCache.ScanAssembly (80ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (162ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (125ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (1ms)
+			ProcessInitializeOnLoadAttributes (82ms)
+			ProcessInitializeOnLoadMethodAttributes (32ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.505 seconds
+Refreshing native plugins compatible for Editor in 6.98 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.529 seconds
+Domain Reload Profiling: 1027ms
+	BeginReloadAssembly (113ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (3ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (15ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (34ms)
+	LoadAllAssembliesAndSetupDomain (323ms)
+		LoadAssemblies (249ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (142ms)
+			TypeCache.Refresh (118ms)
+				TypeCache.ScanAssembly (105ms)
+			ScanForSourceGeneratedMonoScriptInfo (17ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (530ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (419ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (2ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (49ms)
+			ProcessInitializeOnLoadAttributes (315ms)
+			ProcessInitializeOnLoadMethodAttributes (43ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 5.86 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5742 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 83 unused Assets / (321.9 KB). Loaded Objects now: 6203.
+Memory consumption went from 218.8 MB to 218.5 MB.
+Total: 3.589800 ms (FindLiveObjects: 0.354200 ms CreateObjectMapping: 0.181800 ms MarkObjects: 2.855700 ms  DeleteObjects: 0.196900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2389751.496254 seconds.
+  path: Assets/Creator Kit - RPG/Gameplay Prefabs/StoryItem.prefab
+  artifactKey: Guid(c14338f3a43e548bd89e6e11c7bcb803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Gameplay Prefabs/StoryItem.prefab using Guid(c14338f3a43e548bd89e6e11c7bcb803) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bffde5e5311899b07c6c21cc610aa29d') in 0.023129 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Creator Kit - RPG/Gameplay Prefabs/InventoryItem.prefab
+  artifactKey: Guid(2a657642475934620a07fd2e829b35d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Gameplay Prefabs/InventoryItem.prefab using Guid(2a657642475934620a07fd2e829b35d7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '073582dffed9491ceb27044af61a1bc9') in 0.146320 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 5.08 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 2 unused Assets / (290.6 KB). Loaded Objects now: 6291.
+Memory consumption went from 108.1 MB to 107.8 MB.
+Total: 3.334600 ms (FindLiveObjects: 0.292400 ms CreateObjectMapping: 0.136600 ms MarkObjects: 2.856800 ms  DeleteObjects: 0.047900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.341 seconds
+Refreshing native plugins compatible for Editor in 4.64 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.189 seconds
+Domain Reload Profiling: 1525ms
+	BeginReloadAssembly (123ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (26ms)
+	RebuildCommonClasses (19ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (161ms)
+		LoadAssemblies (208ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (12ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (1189ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (499ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (4ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (53ms)
+			ProcessInitializeOnLoadAttributes (371ms)
+			ProcessInitializeOnLoadMethodAttributes (58ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (16ms)
+Refreshing native plugins compatible for Editor in 8.19 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5577 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 47 unused Assets / (320.2 KB). Loaded Objects now: 6256.
+Memory consumption went from 194.1 MB to 193.8 MB.
+Total: 3.357600 ms (FindLiveObjects: 0.418900 ms CreateObjectMapping: 0.225800 ms MarkObjects: 2.623900 ms  DeleteObjects: 0.088200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.371 seconds
+Refreshing native plugins compatible for Editor in 5.76 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.357 seconds
+Domain Reload Profiling: 1721ms
+	BeginReloadAssembly (134ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (29ms)
+	RebuildCommonClasses (23ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (28ms)
+	LoadAllAssembliesAndSetupDomain (171ms)
+		LoadAssemblies (223ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (14ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (1357ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (607ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (5ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (54ms)
+			ProcessInitializeOnLoadAttributes (468ms)
+			ProcessInitializeOnLoadMethodAttributes (65ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 8.33 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5577 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 47 unused Assets / (320.2 KB). Loaded Objects now: 6261.
+Memory consumption went from 194.1 MB to 193.8 MB.
+Total: 4.416500 ms (FindLiveObjects: 0.459300 ms CreateObjectMapping: 0.099900 ms MarkObjects: 3.632700 ms  DeleteObjects: 0.223100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1155.623764 seconds.
+  path: Assets/Creator Kit - RPG/Scripts/Gameplay/CloudSystem.cs
+  artifactKey: Guid(ca43028c713fc47899d7525a9e41b8bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Scripts/Gameplay/CloudSystem.cs using Guid(ca43028c713fc47899d7525a9e41b8bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebcad4af57331325cfb0580914451a2c') in 0.003076 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 2194.977859 seconds.
+  path: Assets/Creator Kit - RPG/Art/Tiles/Tiles.prefab
+  artifactKey: Guid(66a9d607713234dcdad67f06eef62205) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/Tiles/Tiles.prefab using Guid(66a9d607713234dcdad67f06eef62205) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c058f9a6ad95b37b47dab9977c83b094') in 0.177164 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 404
+========================================================================
+Received Import Request.
+  Time since last request: 7.341031 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/WaterCornersAnimated
+  artifactKey: Guid(a876ed9828cd714418e401350c0de800) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/WaterCornersAnimated using Guid(a876ed9828cd714418e401350c0de800) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57c7534f730c0beca5774a47b933e5b8') in 0.000532 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.358884 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/WaterCornersAnimated/WaterCorner_BottomLeft.asset
+  artifactKey: Guid(f834ebcc4a80e7542b74a43f095561a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/WaterCornersAnimated/WaterCorner_BottomLeft.asset using Guid(f834ebcc4a80e7542b74a43f095561a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cac88b030bfa68499ac3b335b51b6c44') in 0.001578 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/WaterCornersAnimated/WaterCorner_TopRight.asset
+  artifactKey: Guid(613d277ff624a4e4fb71911f91ab53c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/WaterCornersAnimated/WaterCorner_TopRight.asset using Guid(613d277ff624a4e4fb71911f91ab53c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7f1bde570bf7d1b59cf4f97d37e4958') in 0.001759 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/WaterCornersAnimated/WaterCorner_TopLeft.asset
+  artifactKey: Guid(58a567bc9936e4c4dbd7fbd8335054ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/WaterCornersAnimated/WaterCorner_TopLeft.asset using Guid(58a567bc9936e4c4dbd7fbd8335054ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64fadac265be0f2e2d0ca44dee85fb90') in 0.001523 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.384 seconds
+Refreshing native plugins compatible for Editor in 5.62 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.433 seconds
+Domain Reload Profiling: 1810ms
+	BeginReloadAssembly (142ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (11ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (181ms)
+		LoadAssemblies (236ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (15ms)
+			TypeCache.Refresh (5ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1434ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (558ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (74ms)
+			ProcessInitializeOnLoadAttributes (409ms)
+			ProcessInitializeOnLoadMethodAttributes (54ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Refreshing native plugins compatible for Editor in 6.57 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5577 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 47 unused Assets / (320.2 KB). Loaded Objects now: 6303.
+Memory consumption went from 194.3 MB to 194.0 MB.
+Total: 3.604900 ms (FindLiveObjects: 0.310200 ms CreateObjectMapping: 0.111100 ms MarkObjects: 3.087700 ms  DeleteObjects: 0.094900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 9.622473 seconds.
+  path: Assets/Creator Kit - RPG/Art/Sprites/Animated Environment/Animated_WaterCorners_Sheet.png
+  artifactKey: Guid(cb2c6dcd19a1c244c9fcc9bd04cebd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/Sprites/Animated Environment/Animated_WaterCorners_Sheet.png using Guid(cb2c6dcd19a1c244c9fcc9bd04cebd2d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5e098a8454b2926590a6977a78acbe8') in 0.191983 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 34
+========================================================================
+Received Import Request.
+  Time since last request: 30.723628 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass
+  artifactKey: Guid(1d8399671d35cb24c8a12a9805c23fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass using Guid(1d8399671d35cb24c8a12a9805c23fe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '774b4f15be88842c4f14aef011870e88') in 0.000805 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.180827 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_0.asset
+  artifactKey: Guid(04a37e4f43d9187409fb8cfe0e2b2d9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_0.asset using Guid(04a37e4f43d9187409fb8cfe0e2b2d9a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b2e4dc3d8af72bc2d9f8a1d5ae0cfce') in 0.046779 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassDark_2.asset
+  artifactKey: Guid(845ac0759fa7e3947a854bce46b8a2b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassDark_2.asset using Guid(845ac0759fa7e3947a854bce46b8a2b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e08a79f45a188b0ee35ae56ae3a751a4') in 0.020994 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_6.asset
+  artifactKey: Guid(9f269826e1dc8fe4289ce43d8a20ed5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_6.asset using Guid(9f269826e1dc8fe4289ce43d8a20ed5d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44dfae52af7464e5f25b72d1f2105ecf') in 0.008429 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassToDesert_2.asset
+  artifactKey: Guid(48fc4e533ab75514085176217bb68b21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassToDesert_2.asset using Guid(48fc4e533ab75514085176217bb68b21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38953976f188ac68cf3f8e7aa4da6ea2') in 0.020570 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassToDesert_6.asset
+  artifactKey: Guid(39174cad28302464280f4a08110aafbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassToDesert_6.asset using Guid(39174cad28302464280f4a08110aafbc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49b6b0c07ff52789467faa13deee2875') in 0.027157 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000129 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassToDesert_0.asset
+  artifactKey: Guid(ef43005785d97004e9d01dd53d977b80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassToDesert_0.asset using Guid(ef43005785d97004e9d01dd53d977b80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4b7474f6ecd8c92ca50f16b23c98966') in 0.018988 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_4.asset
+  artifactKey: Guid(53262df2b72a7b8448391824f2fa80ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_4.asset using Guid(53262df2b72a7b8448391824f2fa80ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05437e476a8aabd45622fef0b94b62db') in 0.008469 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassDark_0.asset
+  artifactKey: Guid(7efb2f7d5a06eb44cb93811999d81ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassDark_0.asset using Guid(7efb2f7d5a06eb44cb93811999d81ffc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d5d51b9e536455ca55d136aa61fbf64') in 0.018726 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_7.asset
+  artifactKey: Guid(a22a3e1c2d01dff49aa48a919e2552c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_7.asset using Guid(a22a3e1c2d01dff49aa48a919e2552c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca38bfc73253af536e366e5fe0a1ee25') in 0.009381 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000123 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_5.asset
+  artifactKey: Guid(cf2e97ca6d281cb4cadfee46620f3013) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_5.asset using Guid(cf2e97ca6d281cb4cadfee46620f3013) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd8ecfe5cb016f1d96daa6bb4bbd72834') in 0.008453 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_2.asset
+  artifactKey: Guid(765662f38a52a29489b377d9f6a545e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_2.asset using Guid(765662f38a52a29489b377d9f6a545e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9fd647279f6168963449a830b53f514') in 0.008135 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassDark_6.asset
+  artifactKey: Guid(c93bc1194c624464284232707f23d505) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassDark_6.asset using Guid(c93bc1194c624464284232707f23d505) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be466204e495a584634dfb5c95b88ccc') in 0.022986 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassDark_5.asset
+  artifactKey: Guid(9333b30954a22cf4cb7c2d47f226132b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassDark_5.asset using Guid(9333b30954a22cf4cb7c2d47f226132b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bebd02205ae298733e468c8b98affd27') in 0.030258 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_3.asset
+  artifactKey: Guid(24f698c0525041a46af65d3686ca6f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_Grass_3.asset using Guid(24f698c0525041a46af65d3686ca6f6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2589e9706f18d300c494423e9b665c2') in 0.009141 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.283803 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassToDesert_7.asset
+  artifactKey: Guid(2c2aa6681cfbc774982dda21eac9e603) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassToDesert_7.asset using Guid(2c2aa6681cfbc774982dda21eac9e603) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4088517415d144cfe173bd5adc94fc9f') in 0.029283 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassVariant_4.asset
+  artifactKey: Guid(98b41a52ef69e71449022cb1c5339736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassVariant_4.asset using Guid(98b41a52ef69e71449022cb1c5339736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '599bc6a119ce3595ef4fca9cc0f8fec9') in 0.020467 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassVariant_5.asset
+  artifactKey: Guid(c9abf8d0de8be43409535e3406b8a3b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/TilesGrass/Tiles_GrassVariant_5.asset using Guid(c9abf8d0de8be43409535e3406b8a3b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '768306bbdcd9181037b75cb297c7e7d9') in 0.024149 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 1.684867 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/Pipeline Tile
+  artifactKey: Guid(af0bc89550613a14fa0feadd363358e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/Pipeline Tile using Guid(af0bc89550613a14fa0feadd363358e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '86b01ac19fac849d0759d7a9bf39e101') in 0.001061 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.071546 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/Pipeline Tile/Tiles_Fence_Pipeline.asset
+  artifactKey: Guid(1121f664e90804500be48b8c47aaa43e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/Pipeline Tile/Tiles_Fence_Pipeline.asset using Guid(1121f664e90804500be48b8c47aaa43e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bf3cc199a962bfd70098b19b3d456891') in 0.003532 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 17
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/Pipeline Tile/Tiles_WalkPath_Pipeline.asset
+  artifactKey: Guid(4e1376bd0d1e5c443b5f117344b9e89b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/TileMapPalettes/Tileset/Pipeline Tile/Tiles_WalkPath_Pipeline.asset using Guid(4e1376bd0d1e5c443b5f117344b9e89b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7f2d0426e954012255bebdaed0162e3') in 0.002480 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 17
+========================================================================
+Received Import Request.
+  Time since last request: 10.647431 seconds.
+  path: Assets/Creator Kit - RPG/Art/Animators/Warrior-Override.overrideController
+  artifactKey: Guid(3caa1e5e0e6c343d69793b2b5dd95939) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/Animators/Warrior-Override.overrideController using Guid(3caa1e5e0e6c343d69793b2b5dd95939) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb77a043dd194ba09e2700114459c263') in 0.008895 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 44
+========================================================================
+Received Import Request.
+  Time since last request: 9.506949 seconds.
+  path: Assets/Creator Kit - RPG/Art/Sprites/Animated Environment/Animated_Smoke_Sheet.png
+  artifactKey: Guid(5cc535ba862941440a276a5629cd0391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/Sprites/Animated Environment/Animated_Smoke_Sheet.png using Guid(5cc535ba862941440a276a5629cd0391) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d984552d7d7536b91c5000d0213e066') in 0.055343 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 4.205587 seconds.
+  path: Assets/Creator Kit - RPG/Art/Sprites/Environment/Cloud3.png
+  artifactKey: Guid(f3fd60347f10d1f46aa6495101e7de38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Creator Kit - RPG/Art/Sprites/Environment/Cloud3.png using Guid(f3fd60347f10d1f46aa6495101e7de38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b9d4d3cf852e9b07e020d984890a1d4') in 0.049301 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 由于线程退出或应用程序请求，已中止 I/O 操作。
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
