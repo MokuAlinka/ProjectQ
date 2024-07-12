@@ -8,6 +8,11 @@ using UnityEditor.Search;
 public class DiaLogmanager : MonoBehaviour
 {
     /// <summary>
+    /// 对话UI画布
+    /// </summary> 
+    public GameObject Canvas;
+
+    /// <summary>
     /// 对话内容文本，csv格式
     /// </summary> 
     public TextAsset dialogDataFile;
@@ -67,6 +72,14 @@ public class DiaLogmanager : MonoBehaviour
     /// </summary>
     public Transform buttonGroup;
 
+    ///选择
+    private int currentOptionIndex = 0;
+    private int totalOptions = 0;
+
+    /// <summary>
+    /// 触发器
+    /// </summary>
+    public Collider2D Collider2D;
     private void Awake()
     {
         imageDic["NoneImage"] = sprites[0];
@@ -79,7 +92,8 @@ public class DiaLogmanager : MonoBehaviour
         UpdateImage("NoneImage", "Right");
         UpdateImage("NoneImage", "Left");
         ReadText(dialogDataFile);
-        ShowDiaLogRow();
+        Canvas.SetActive(false);
+        CanNext = false;
         // UpdateText("安吉丽娜", "即使引导早已破碎,也请您当上艾尔登之王");
         //UpdateImage("僵尸", false);//不在左侧
         // UpdateImage("安吉丽娜", true);//在左侧
@@ -87,10 +101,33 @@ public class DiaLogmanager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Canvas.activeSelf)
         {
-            OnClickNext();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (CanNext)
+                {
+                    OnClickNext();
+                }
+                else
+                {
+                    ConfirmOption();
+                }
+            }
+            else if (!CanNext)
+            {
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    SelectOption(-1); // Move left in options
+                }
+                else if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    SelectOption(1); // Move right in options
+                }
+            }
         }
+        
+        
     }
 
     //更新文本信息
@@ -142,6 +179,11 @@ public class DiaLogmanager : MonoBehaviour
             }
             else if (cells[0] == "end" && int.Parse(cells[1]) == dialogIndex)
             {
+                if (Canvas.activeSelf)
+                {
+                    Canvas.SetActive(false);
+                }
+                dialogIndex = 0;
                 Debug.Log("剧情结束"); //这里结束
             }
         }
@@ -165,17 +207,76 @@ public class DiaLogmanager : MonoBehaviour
             //按键事件
             button.GetComponentInChildren<TMP_Text>().text = cells[4];
             button.GetComponent<Button>().onClick.AddListener(delegate { OnOptionClick(int.Parse(cells[5])); });
-
             GenerateOption(_index + 1);
         }
+        totalOptions = buttonGroup.childCount -1;
     }
     public void OnOptionClick(int _id)
     {
         dialogIndex = _id;
+        ClearOptions();
         ShowDiaLogRow();
-        for(int i = 0;i <buttonGroup.childCount;i++)
+    }
+    private void ClearOptions()
+    {
+        for (int i = 0; i < buttonGroup.childCount; i++)
         {
             Destroy(buttonGroup.GetChild(i).gameObject);
+        }
+    }
+    private void SelectOption(int direction)
+    {
+        currentOptionIndex += direction;
+
+        // Ensure currentOptionIndex wraps around if it goes out of bounds
+        if (currentOptionIndex < 0)
+        {
+            currentOptionIndex = totalOptions;
+        }
+        else if (currentOptionIndex > totalOptions)
+        {
+            currentOptionIndex = 0;
+        }
+
+        // Highlight/select the current option visually (if needed)
+        HighlightOption(currentOptionIndex);
+    }
+
+    private void HighlightOption(int index)
+    {
+        for (int i = 0; i < buttonGroup.childCount; i++)
+        {
+            Button optionButtons = buttonGroup.GetChild(i).GetComponent<Button>();
+            ColorBlock color = optionButtons.colors;
+            color.colorMultiplier = 1f; // 设置颜色倍增器为选中状态的倍数
+            optionButtons.colors = color;
+        }
+            
+        Button optionButton = buttonGroup.GetChild(index).GetComponent<Button>();
+        if (optionButton != null)
+        {
+            ColorBlock colors = optionButton.colors;
+            colors.colorMultiplier = 5f; // 设置颜色倍增器为选中状态的倍数
+            optionButton.colors = colors;
+        }
+    }
+
+    private void ConfirmOption()
+    {
+        if (currentOptionIndex >= 0 && currentOptionIndex <= totalOptions)
+        {
+            buttonGroup.GetChild(currentOptionIndex).GetComponent<Button>().onClick.Invoke();
+        }
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (!Canvas.activeSelf)
+            {
+                Canvas.SetActive(true);
+                ShowDiaLogRow();
+            }
         }
     }
 }
