@@ -90,6 +90,7 @@
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Core\InstanceTracker.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\ConversationOption.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Core\Event.cs" />
+    <Compile Include="Assets\Scenes\DiaLogmanager.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\UI\DialogLayout.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\StopTalking.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Tiles\Custom\FenceTile.cs" />
@@ -105,6 +106,7 @@
     <None Include="Assets\CreatorKitRPG_Third-PartyNotice.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Fonts &amp; Materials\mr-pixel\VTF MisterPixel\Velvetyne Black Font Licence.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\Chinese Support\Font Asset\7000Chinese.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />

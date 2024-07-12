@@ -45,6 +45,7 @@ namespace RPGM.UI
                 model.dialog.FocusButton(+1);
             if (Input.GetKeyDown(KeyCode.Space))
                 model.dialog.SelectActiveButton();
+            
         }
 
         void CharacterControl()

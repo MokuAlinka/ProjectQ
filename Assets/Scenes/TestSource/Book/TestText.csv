@@ -1,0 +1,8 @@
+Mark_0,ID_1,Character_2,Position_3,Content_4,SwitchTo_5,Trigger_6,Effect_7
+#,0,DingZhen_0,Left,大家好，我是丁真,1,,
+#,1,DingZhen_0,Left,我测,2,,
+#,2,DingZhen_0,Right,现在我在右侧,3,,
+#,3,DingZhen_1,Right,改变角色,4,,
+&,4,,,转回0处,0,,
+&,5,,,离开,6,,
+end,6,,,,,,
