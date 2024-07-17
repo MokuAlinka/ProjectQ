@@ -85,6 +85,7 @@
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\GameController.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\CameraController.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\NPCController.cs" />
+    <Compile Include="Assets\Scenes\DiaLogTirgger.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Tiles\Custom\PipelineTile.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Cutscene\Runtime\Cutscene.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Core\InstanceTracker.cs" />

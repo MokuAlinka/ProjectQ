@@ -63,7 +63,6 @@ public class DiaLogmanager : MonoBehaviour
     /// <summary>
     /// 继续按钮
     /// </summary>
-    public bool CanNext = false;
 
     /// <summary>
     /// 选项按钮
@@ -82,7 +81,6 @@ public class DiaLogmanager : MonoBehaviour
     /// <summary>
     /// 触发器
     /// </summary>
-    public Collider2D Collider2D;
 
     GameModel model = Schedule.GetModel<GameModel>();
     private void Awake()
@@ -97,9 +95,7 @@ public class DiaLogmanager : MonoBehaviour
     {
         UpdateImage("NoneImage", "Right");
         UpdateImage("NoneImage", "Left");
-        ReadText(dialogDataFile);
         Canvas.SetActive(false);
-        CanNext = false;
     }
 
     void Update()
@@ -145,12 +141,10 @@ public class DiaLogmanager : MonoBehaviour
                 UpdateImage(cells[2], cells[3]);
 
                 dialogIndex = int.Parse(cells[5]);
-                CanNext = true;
                 break;
             }
             else if (cells[0] == "&" && int.Parse(cells[1]) == dialogIndex)
             {
-                CanNext = false;
                 GenerateOption(i);
             }
             else if (cells[0] == "end" && int.Parse(cells[1]) == dialogIndex)
@@ -159,6 +153,7 @@ public class DiaLogmanager : MonoBehaviour
                 {
                     Canvas.SetActive(false);
                 }
+                dialogRows = new string[0];
                 dialogIndex = 0;
                 model.input.ChangeState(InputController.State.CharacterControl);
                 Debug.Log("剧情结束"); //这里结束
@@ -179,6 +174,8 @@ public class DiaLogmanager : MonoBehaviour
             GenerateOption(_index + 1);
         }
         totalOptions = buttonGroup.childCount -1;
+        currentOptionIndex = 0;
+        HighlightOption(currentOptionIndex, 5f);
     }
     public void OnOptionClick(int _id)
     {
@@ -240,16 +237,13 @@ public class DiaLogmanager : MonoBehaviour
             optionButton.colors = colors;
         }
     }
-    void OnTriggerEnter2D(Collider2D other)
+    public void StartDiaLog()
     {
-        if (other.CompareTag("Player"))
+        if (!Canvas.activeSelf && dialogRows != null && dialogRows.Length > 0)
         {
-            if (!Canvas.activeSelf)
-            {
-                Canvas.SetActive(true);
-                model.input.ChangeState(InputController.State.DialogControl);
-                ShowDiaLogRow();
-            }
+            Canvas.SetActive(true);
+            model.input.ChangeState(InputController.State.DialogControl);
+            ShowDiaLogRow();
         }
     }
 
