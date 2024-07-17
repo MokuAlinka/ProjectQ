@@ -40,11 +40,11 @@ namespace RPGM.UI
         {
             model.player.nextMoveCommand = Vector3.zero;
             if (Input.GetKeyDown(KeyCode.LeftArrow))
-                model.dialog.FocusButton(-1);
+                model.dialogmanager.SelectOption(-1);
             else if (Input.GetKeyDown(KeyCode.RightArrow))
-                model.dialog.FocusButton(+1);
+                model.dialogmanager.SelectOption(+1);
             if (Input.GetKeyDown(KeyCode.Space))
-                model.dialog.SelectActiveButton();
+                model.dialogmanager.ConfirmOption();
             
         }
 

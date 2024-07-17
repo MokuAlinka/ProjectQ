@@ -16,6 +16,7 @@ namespace RPGM.Gameplay
     {
         public CharacterController2D player;
         public DialogController dialog;
+        public DiaLogmanager dialogmanager;//我的
         public InputController input;
         public InventoryController inventoryController;
         public MusicController musicController;

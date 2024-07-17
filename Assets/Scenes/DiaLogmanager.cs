@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEditor.Search;
+using RPGM.UI;
+using RPGM.Core;
+using RPGM.Gameplay;
 
 public class DiaLogmanager : MonoBehaviour
 {
@@ -80,11 +83,14 @@ public class DiaLogmanager : MonoBehaviour
     /// 触发器
     /// </summary>
     public Collider2D Collider2D;
+
+    GameModel model = Schedule.GetModel<GameModel>();
     private void Awake()
     {
-        imageDic["NoneImage"] = sprites[0];
-        imageDic["DingZhen_0"] = sprites[1];
-        imageDic["DingZhen_1"] = sprites[2];
+        foreach (var sprite in sprites)
+        {
+            imageDic[sprite.name] = sprite;
+        }
     }
 
     void Start()
@@ -94,39 +100,10 @@ public class DiaLogmanager : MonoBehaviour
         ReadText(dialogDataFile);
         Canvas.SetActive(false);
         CanNext = false;
-        // UpdateText("安吉丽娜", "即使引导早已破碎,也请您当上艾尔登之王");
-        //UpdateImage("僵尸", false);//不在左侧
-        // UpdateImage("安吉丽娜", true);//在左侧
     }
 
     void Update()
     {
-        if (Canvas.activeSelf)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                if (CanNext)
-                {
-                    OnClickNext();
-                }
-                else
-                {
-                    ConfirmOption();
-                }
-            }
-            else if (!CanNext)
-            {
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    SelectOption(-1); // Move left in options
-                }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    SelectOption(1); // Move right in options
-                }
-            }
-        }
-        
         
     }
 
@@ -136,7 +113,6 @@ public class DiaLogmanager : MonoBehaviour
         nameText.text = _name;
         dialogText.text = _text;
     }
-
     //更新图片信息
     public void UpdateImage(string _name, string _position) 
     {
@@ -184,19 +160,12 @@ public class DiaLogmanager : MonoBehaviour
                     Canvas.SetActive(false);
                 }
                 dialogIndex = 0;
+                model.input.ChangeState(InputController.State.CharacterControl);
                 Debug.Log("剧情结束"); //这里结束
             }
         }
     }
 
-    public void OnClickNext()
-    {
-        if (CanNext)
-        {
-            ShowDiaLogRow();
-        }
-        
-    }
 
     public void GenerateOption(int _index) //生成按钮
     {
@@ -223,49 +192,52 @@ public class DiaLogmanager : MonoBehaviour
         {
             Destroy(buttonGroup.GetChild(i).gameObject);
         }
+        totalOptions = 0;
     }
-    private void SelectOption(int direction)
+    public void SelectOption(int direction)
     {
-        currentOptionIndex += direction;
-
-        // Ensure currentOptionIndex wraps around if it goes out of bounds
-        if (currentOptionIndex < 0)
+        if (totalOptions > 0)
         {
-            currentOptionIndex = totalOptions;
-        }
-        else if (currentOptionIndex > totalOptions)
-        {
-            currentOptionIndex = 0;
-        }
+            HighlightOption(currentOptionIndex);
+            currentOptionIndex += direction;
 
-        // Highlight/select the current option visually (if needed)
-        HighlightOption(currentOptionIndex);
+            // Ensure currentOptionIndex wraps around if it goes out of bounds
+            if (currentOptionIndex < 0)
+            {
+                currentOptionIndex = totalOptions;
+            }
+            else if (currentOptionIndex > totalOptions)
+            {
+                currentOptionIndex = 0;
+            }
+
+            // Highlight/select the current option visually (if needed)
+            HighlightOption(currentOptionIndex,5f);
+        }
     }
-
-    private void HighlightOption(int index)
+    public void ConfirmOption()
     {
-        for (int i = 0; i < buttonGroup.childCount; i++)
+        if (totalOptions > 0)
         {
-            Button optionButtons = buttonGroup.GetChild(i).GetComponent<Button>();
-            ColorBlock color = optionButtons.colors;
-            color.colorMultiplier = 1f; // 设置颜色倍增器为选中状态的倍数
-            optionButtons.colors = color;
+            if (currentOptionIndex >= 0 && currentOptionIndex <= totalOptions)
+            {
+                buttonGroup.GetChild(currentOptionIndex).GetComponent<Button>().onClick.Invoke();
+            }
         }
-            
+        else
+        {
+            Debug.Log("1111");
+            ShowDiaLogRow();
+        }
+    }
+    private void HighlightOption(int index,float color = 1f)
+    {
         Button optionButton = buttonGroup.GetChild(index).GetComponent<Button>();
         if (optionButton != null)
         {
             ColorBlock colors = optionButton.colors;
-            colors.colorMultiplier = 5f; // 设置颜色倍增器为选中状态的倍数
+            colors.colorMultiplier = color; // 设置颜色倍增器为选中状态的倍数
             optionButton.colors = colors;
-        }
-    }
-
-    private void ConfirmOption()
-    {
-        if (currentOptionIndex >= 0 && currentOptionIndex <= totalOptions)
-        {
-            buttonGroup.GetChild(currentOptionIndex).GetComponent<Button>().onClick.Invoke();
         }
     }
     void OnTriggerEnter2D(Collider2D other)
@@ -275,9 +247,11 @@ public class DiaLogmanager : MonoBehaviour
             if (!Canvas.activeSelf)
             {
                 Canvas.SetActive(true);
+                model.input.ChangeState(InputController.State.DialogControl);
                 ShowDiaLogRow();
             }
         }
     }
+
 }
 
