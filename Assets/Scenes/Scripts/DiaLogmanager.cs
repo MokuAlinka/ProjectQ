@@ -10,6 +10,7 @@ using RPGM.Gameplay;
 
 public class DiaLogmanager : MonoBehaviour
 {
+    private bool DiaLogBar = false;
     /// <summary>
     /// 对话UI画布
     /// </summary> 
@@ -90,19 +91,21 @@ public class DiaLogmanager : MonoBehaviour
             imageDic[sprite.name] = sprite;
         }
     }
-
     void Start()
+    {
+        ClearCanvas();
+        Canvas.SetActive(false);
+    }
+    void ClearCanvas()
     {
         UpdateImage("NoneImage", "Right");
         UpdateImage("NoneImage", "Left");
-        Canvas.SetActive(false);
+        UpdateText("", "");
     }
-
     void Update()
     {
         
     }
-
     //更新文本信息
     public void UpdateText(string _name, string _text)
     {
@@ -122,14 +125,12 @@ public class DiaLogmanager : MonoBehaviour
             imageRight.sprite = imageDic[_name];
             imageLeft.sprite = imageDic["NoneImage"];
         }
-    }   
-
+    }
     public void ReadText(TextAsset _textAsset)
     {
         dialogRows = _textAsset.text.Split('\n'); //以换行来分割
         Debug.Log("读取成果");
     }
-
     public void ShowDiaLogRow()
     {
         for (int i = 0; i < dialogRows.Length; i++)
@@ -149,6 +150,7 @@ public class DiaLogmanager : MonoBehaviour
             }
             else if (cells[0] == "end" && int.Parse(cells[1]) == dialogIndex)
             {
+                ClearCanvas();
                 if (Canvas.activeSelf)
                 {
                     Canvas.SetActive(false);
@@ -158,14 +160,23 @@ public class DiaLogmanager : MonoBehaviour
                 model.input.ChangeState(InputController.State.CharacterControl);
                 Debug.Log("剧情结束"); //这里结束
             }
+            else if (cells[0] == "?&" && int.Parse(cells[1]) == dialogIndex)
+            {
+                if (model.HaveItem(cells[6], int.Parse(cells[7])))
+                {
+                    GenerateOption(i);
+                }
+                else
+                {
+                    dialogIndex += 1;
+                }
+            }
         }
     }
-
-
     public void GenerateOption(int _index) //生成按钮
     {
         string[] cells = dialogRows[_index].Split(",");
-        if (cells[0] == "&")
+        if (cells[0] == "&"|| cells[0]=="?&")
         {
             GameObject button = Instantiate(optionButton, buttonGroup);
             //按键事件
@@ -221,9 +232,18 @@ public class DiaLogmanager : MonoBehaviour
                 buttonGroup.GetChild(currentOptionIndex).GetComponent<Button>().onClick.Invoke();
             }
         }
+        else if (DiaLogBar)
+        {
+            DiaLogBar = false;
+            if (Canvas.activeSelf)
+            {
+                ClearCanvas();
+                Canvas.SetActive(false);
+            }
+            model.input.ChangeState(InputController.State.CharacterControl);
+        }
         else
         {
-            Debug.Log("1111");
             ShowDiaLogRow();
         }
     }
@@ -246,6 +266,15 @@ public class DiaLogmanager : MonoBehaviour
             ShowDiaLogRow();
         }
     }
-
+    public void DialogBar(string _name, string _text)
+    {
+        if (!Canvas.activeSelf)
+        {
+            DiaLogBar = true;
+            Canvas.SetActive(true);
+            model.input.ChangeState(InputController.State.DialogControl);
+        }
+        UpdateText(_name, _text);
+    }
 }
 

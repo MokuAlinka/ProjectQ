@@ -24,6 +24,7 @@ namespace RPGM.Gameplay
         Dictionary<GameObject, HashSet<string>> conversations = new Dictionary<GameObject, HashSet<string>>();
 
         Dictionary<string, int> inventory = new Dictionary<string, int>();
+        Dictionary<string, Dictionary<string, object>> itemData = new Dictionary<string, Dictionary<string, object>>();//我的
         Dictionary<string, Sprite> inventorySprites = new Dictionary<string, Sprite>();
 
         HashSet<string> storyItems = new HashSet<string>();
@@ -53,6 +54,24 @@ namespace RPGM.Gameplay
             inventory[item.name] = c;
             inventoryController.Refresh();
         }
+        public void AddItems(ItemsMark item)//我的
+        {
+            Dictionary<string, object> innerDict = new Dictionary<string, object>();
+            innerDict["Introduction"] = item.Introduction;
+            innerDict["Sprite_real"] = item.Sprite_real;
+            if (itemData.TryGetValue(item.ItemName, out Dictionary<string, object> c))
+            {
+                c.TryGetValue("Count", out object cont);
+                innerDict["Count"] = item.Count + (int)cont;
+            }
+            else
+            {
+                innerDict["Count"] = item.Count;
+            }
+            
+            // 将内部字典添加到外部字典中
+            itemData[item.ItemName] = innerDict;
+        }
 
         public bool HasInventoryItem(string name, int count = 1)
         {
@@ -60,7 +79,19 @@ namespace RPGM.Gameplay
             inventory.TryGetValue(name, out c);
             return c >= count;
         }
-
+        public bool HaveItem(string name, int count = 1)
+        {
+            Dictionary<string, object> c = new Dictionary<string, object>();
+            if (itemData.TryGetValue(name, out c))
+            {
+                // 从内部字典中获取物品数量
+                if (c.TryGetValue("Count", out object countObj) && countObj is int)
+                {
+                    return (int)countObj >= count;
+                }
+            }
+            return false;
+        }
         public bool RemoveInventoryItem(InventoryItem item, int count)
         {
             int c = 0;

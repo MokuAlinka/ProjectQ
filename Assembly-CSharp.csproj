@@ -63,6 +63,7 @@
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\AnimationBatchController.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Core\HeapQueue.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\UI\TranslationAnimation.cs" />
+    <Compile Include="Assets\Scenes\Scripts\DiaLogTirgger.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Core\InstanceRegister.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\StoryItem.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\MusicController.cs" />
@@ -81,17 +82,17 @@
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\FootstepTimer.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\UI\MessageBar.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\UI\InventoryController.cs" />
+    <Compile Include="Assets\Scenes\Scripts\ItemsMark.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\StartQuest.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\GameController.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\CameraController.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\NPCController.cs" />
-    <Compile Include="Assets\Scenes\DiaLogTirgger.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Tiles\Custom\PipelineTile.cs" />
+    <Compile Include="Assets\Scenes\Scripts\DiaLogmanager.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Cutscene\Runtime\Cutscene.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Core\InstanceTracker.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\ConversationOption.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Core\Event.cs" />
-    <Compile Include="Assets\Scenes\DiaLogmanager.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\UI\DialogLayout.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\StopTalking.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Tiles\Custom\FenceTile.cs" />
