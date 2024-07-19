@@ -58,6 +58,7 @@ MonoBehaviour:
     input: {fileID: 1318976432026030864}
     inventoryController: {fileID: 0}
     musicController: {fileID: 3534774729685244126}
+    packageManager: {fileID: 0}
 --- !u!114 &1318976432026030864
 MonoBehaviour:
   m_ObjectHideFlags: 0

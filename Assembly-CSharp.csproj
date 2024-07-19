@@ -71,6 +71,7 @@
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\ShowConversation.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\UI\DialogController.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\FadingSpriteSystem.cs" />
+    <Compile Include="Assets\Scenes\Scripts\PackageManager.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\CharacterController2D.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Core\Schedule.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\Quest.cs" />

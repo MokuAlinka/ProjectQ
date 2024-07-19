@@ -144,7 +144,7 @@ public class DiaLogmanager : MonoBehaviour
                 dialogIndex = int.Parse(cells[5]);
                 break;
             }
-            else if (cells[0] == "&" && int.Parse(cells[1]) == dialogIndex)
+            else if ((cells[0] == "&"|| cells[0] == "!&"|| cells[0] == "?&") && int.Parse(cells[1]) == dialogIndex)
             {
                 GenerateOption(i);
             }
@@ -160,28 +160,37 @@ public class DiaLogmanager : MonoBehaviour
                 model.input.ChangeState(InputController.State.CharacterControl);
                 Debug.Log("剧情结束"); //这里结束
             }
-            else if (cells[0] == "?&" && int.Parse(cells[1]) == dialogIndex)
-            {
-                if (model.HaveItem(cells[6], int.Parse(cells[7])))
-                {
-                    GenerateOption(i);
-                }
-                else
-                {
-                    dialogIndex += 1;
-                }
-            }
         }
     }
     public void GenerateOption(int _index) //生成按钮
     {
         string[] cells = dialogRows[_index].Split(",");
-        if (cells[0] == "&"|| cells[0]=="?&")
+        if (cells[0] == "&")
         {
             GameObject button = Instantiate(optionButton, buttonGroup);
             //按键事件
             button.GetComponentInChildren<TMP_Text>().text = cells[4];
             button.GetComponent<Button>().onClick.AddListener(delegate { OnOptionClick(int.Parse(cells[5])); });
+            GenerateOption(_index + 1);
+        }
+        else if (cells[0] == "?&")
+        {
+            if (model.HaveItem(cells[6], int.Parse(cells[7])))
+            {
+                GameObject button = Instantiate(optionButton, buttonGroup);
+                button.GetComponentInChildren<TMP_Text>().text = cells[4];
+                button.GetComponent<Button>().onClick.AddListener(delegate { OnOptionClick(int.Parse(cells[5])); });
+            }
+            GenerateOption(_index + 1);
+        }
+        else if (cells[0] == "!&")
+        {
+            if (!model.HaveItem(cells[6], int.Parse(cells[7])))
+            {
+                GameObject button = Instantiate(optionButton, buttonGroup);
+                button.GetComponentInChildren<TMP_Text>().text = cells[4];
+                button.GetComponent<Button>().onClick.AddListener(delegate { OnOptionClick(int.Parse(cells[5])); });
+            }
             GenerateOption(_index + 1);
         }
         totalOptions = buttonGroup.childCount -1;

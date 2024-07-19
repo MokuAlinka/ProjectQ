@@ -16,6 +16,7 @@ namespace RPGM.UI
         {
             CharacterControl,
             DialogControl,
+            PackageControl,
             Pause
         }
 
@@ -33,6 +34,10 @@ namespace RPGM.UI
                 case State.DialogControl:
                     DialogControl();
                     break;
+                case State.PackageControl:
+                    PackageControl();
+                    break;
+
             }
         }
 
@@ -43,7 +48,7 @@ namespace RPGM.UI
                 model.dialogmanager.SelectOption(-1);
             else if (Input.GetKeyDown(KeyCode.RightArrow))
                 model.dialogmanager.SelectOption(+1);
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Z))
                 model.dialogmanager.ConfirmOption();
             
         }
@@ -77,6 +82,27 @@ namespace RPGM.UI
             {
                 model.player.nextMoveCommand = Vector3.zero;
             }
+
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                model.packageManager.LoadItemsList();
+            }
+        }
+        void PackageControl()
+        {
+            model.player.nextMoveCommand = Vector3.zero;
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+                model.packageManager.HorizontalSelection(-1);
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+                model.packageManager.HorizontalSelection(1);
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+                model.packageManager.VerticalSelection(-1);
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+                model.packageManager.VerticalSelection(1);
+            if (Input.GetKeyDown(KeyCode.Z))
+                model.packageManager.ConfirmOption();
+            else if (Input.GetKeyDown(KeyCode.X))
+                model.packageManager.DisableOption();
         }
     }
 }

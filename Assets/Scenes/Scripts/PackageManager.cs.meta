@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: f2b0bb6bcb1a5104d9bd8828024b473b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - PackageCanvas: {instanceID: 0}
+  - Group_1_buttonGroup: {instanceID: 0}
+  - Group_2_package: {instanceID: 0}
+  - package_buttonGroup: {instanceID: 0}
+  - package_ItemButton: {fileID: 428762659811043529, guid: ac38d3785aa0a654f9b3e978e0c6d4d8,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

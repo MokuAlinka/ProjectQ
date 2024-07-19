@@ -12,6 +12,7 @@ public class ItemsMark : MonoBehaviour
     public string Introduction;
     public string FindingText;
     public int Count = 1;
+    public int ID;
     public Sprite Sprite_thu;
     public Sprite Sprite_real;
 

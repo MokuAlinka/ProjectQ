@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using RPGM.Core;
 using RPGM.Gameplay;
 using RPGM.UI;
@@ -20,6 +21,7 @@ namespace RPGM.Gameplay
         public InputController input;
         public InventoryController inventoryController;
         public MusicController musicController;
+        public PackageManager packageManager;
 
         Dictionary<GameObject, HashSet<string>> conversations = new Dictionary<GameObject, HashSet<string>>();
 
@@ -59,6 +61,7 @@ namespace RPGM.Gameplay
             Dictionary<string, object> innerDict = new Dictionary<string, object>();
             innerDict["Introduction"] = item.Introduction;
             innerDict["Sprite_real"] = item.Sprite_real;
+            innerDict["ID"]= item.ID;
             if (itemData.TryGetValue(item.ItemName, out Dictionary<string, object> c))
             {
                 c.TryGetValue("Count", out object cont);
@@ -92,6 +95,7 @@ namespace RPGM.Gameplay
             }
             return false;
         }
+
         public bool RemoveInventoryItem(InventoryItem item, int count)
         {
             int c = 0;
@@ -101,6 +105,28 @@ namespace RPGM.Gameplay
             inventory[item.name] = c;
             inventoryController.Refresh();
             return true;
+        }
+        public bool RemoveItem(string name, int count = 1)
+        {
+            Dictionary<string, object> c = new Dictionary<string, object>();
+            if (itemData.TryGetValue(name, out c))
+            {
+                if (c.TryGetValue("Count", out object countObj) && countObj is int)
+                {
+                    if ((int)countObj > count)
+                    {
+                        c["Count"] = ((int)countObj - count);
+                        itemData[name] = c;
+                        return true;
+                    }
+                    else if ((int)countObj == count)
+                    {
+                        itemData.Remove(name);
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         public void RegisterStoryItem(string ID)
@@ -130,6 +156,26 @@ namespace RPGM.Gameplay
         public bool HasMet(GameObject owner)
         {
             return conversations.ContainsKey(owner);
+        }
+        public List<string> GetItemsList()
+        {
+            var sortedKeys = itemData.Keys
+            .OrderBy(key => (int)itemData[key]["ID"])
+            .ToList();
+            return sortedKeys;
+        }
+        public object GetItemDate(string name,string info)
+        {
+            Dictionary<string, object> c = new Dictionary<string, object>();
+            if (itemData.TryGetValue(name, out c))
+            {
+                return c[info];
+            }
+            return null;
+        }
+        public Dictionary<string, object> GetItemDic(string name)
+        {
+            return itemData[name];
         }
     }
 }
