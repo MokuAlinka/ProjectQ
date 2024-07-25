@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 using static UnityEditor.Progress;
+using static System.TimeZoneInfo;
 
 public class PackageManager : MonoBehaviour
 {
@@ -18,11 +19,56 @@ public class PackageManager : MonoBehaviour
     public Transform package_buttonGroup;
     public GameObject package_ItemButton;
 
+    public RectTransform Kard; // UI元素
+    public GameObject startObject;  // 起始位置的GameObject
+    public GameObject endObject;    // 目标位置的GameObject
+    public float transitionTime = 2.0f; // 过渡时间
+    public bool reverse = false;    // 是否反向过渡
+    public bool isTransition = false;
+
     public Image ItemImage;
     public TMP_Text ItemNameText;
     public TMP_Text ItemDescriptionText;
     GameModel model = Schedule.GetModel<GameModel>();
-    
+    IEnumerator TransitionUI(GameObject from, GameObject to)
+    {
+        float elapsedTime = 0;
+
+        Vector3 startPosition = from.transform.localPosition;
+        Vector3 endPosition = to.transform.localPosition;
+
+        Vector3 startScale = from.transform.localScale;
+        Vector3 endScale = to.transform.localScale;
+
+        Quaternion startRotation = from.transform.localRotation;
+        Quaternion endRotation = to.transform.localRotation;
+
+        while (elapsedTime < transitionTime)
+        {
+            // 计算过渡进度
+            float t = elapsedTime / transitionTime;
+
+            // 位置插值
+            Kard.localPosition = Vector3.Lerp(startPosition, endPosition, t);
+
+            // 缩放插值
+            Kard.localScale = Vector3.Lerp(startScale, endScale, t);
+
+            // 旋转插值
+            Kard.localRotation = Quaternion.Lerp(startRotation, endRotation, t);
+
+            // 增加经过的时间
+            elapsedTime += Time.deltaTime;
+
+            // 等待下一帧
+            yield return null;
+        }
+
+        // 确保最后位置、缩放和旋转是目标值
+        Kard.localPosition = endPosition;
+        Kard.localScale = endScale;
+        Kard.localRotation = endRotation;
+    }
     public void HorizontalSelection(int direction)
     {
 
@@ -56,6 +102,7 @@ public class PackageManager : MonoBehaviour
                 package_buttonGroup.GetChild(0).GetComponent<Button>().onClick.Invoke();
             }
             PackageCanvas.SetActive(true);
+            StartCoroutine(TransitionUI(startObject, endObject));
         }
         else
         {

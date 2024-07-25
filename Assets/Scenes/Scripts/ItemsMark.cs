@@ -15,6 +15,7 @@ public class ItemsMark : MonoBehaviour
     public int ID;
     public Sprite Sprite_thu;
     public Sprite Sprite_real;
+    public bool ShowInPackage = true;
 
     GameModel model = Schedule.GetModel<GameModel>();
     void OnEnable()

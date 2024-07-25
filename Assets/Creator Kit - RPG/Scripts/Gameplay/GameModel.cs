@@ -62,6 +62,7 @@ namespace RPGM.Gameplay
             innerDict["Introduction"] = item.Introduction;
             innerDict["Sprite_real"] = item.Sprite_real;
             innerDict["ID"]= item.ID;
+            innerDict["ShowInPackage"] = item.ShowInPackage;
             if (itemData.TryGetValue(item.ItemName, out Dictionary<string, object> c))
             {
                 c.TryGetValue("Count", out object cont);

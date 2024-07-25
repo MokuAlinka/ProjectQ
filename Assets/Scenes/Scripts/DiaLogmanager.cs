@@ -110,7 +110,7 @@ public class DiaLogmanager : MonoBehaviour
     public void UpdateText(string _name, string _text)
     {
         nameText.text = _name;
-        dialogText.text = _text;
+        dialogText.text = "<rotate=90>"+_text;
     }
     //更新图片信息
     public void UpdateImage(string _name, string _position) 
