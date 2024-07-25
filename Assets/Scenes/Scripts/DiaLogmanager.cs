@@ -74,7 +74,9 @@ public class DiaLogmanager : MonoBehaviour
     /// 选项按钮父节点
     /// </summary>
     public Transform buttonGroup;
-
+    public float speak_speed = 0.5f;
+    private Coroutine typewrite;
+    private bool complete = true;
     ///选择
     private int currentOptionIndex = 0;
     private int totalOptions = 0;
@@ -106,11 +108,33 @@ public class DiaLogmanager : MonoBehaviour
     {
         
     }
+    private IEnumerator TypeWriter(float speed = 0.5f)
+    {
+        dialogText.ForceMeshUpdate();
+        TMP_TextInfo textInfo = dialogText.textInfo;
+        int total = textInfo.characterCount;
+        complete = false;
+        int current = 0;
+        while (!complete)
+        {
+            if (current > total)
+            {
+                current = total;
+                yield return null;
+                complete = true;
+            }
+            dialogText.maxVisibleCharacters = current;
+            current++;
+            yield return new WaitForSecondsRealtime(speed);
+        }
+        yield return null;
+    }
     //更新文本信息
     public void UpdateText(string _name, string _text)
     {
         nameText.text = _name;
         dialogText.text = "<rotate=90>"+_text;
+        typewrite = StartCoroutine(TypeWriter(speak_speed));
     }
     //更新图片信息
     public void UpdateImage(string _name, string _position) 
@@ -234,26 +258,35 @@ public class DiaLogmanager : MonoBehaviour
     }
     public void ConfirmOption()
     {
-        if (totalOptions > 0)
+        if (!complete)
         {
-            if (currentOptionIndex >= 0 && currentOptionIndex <= totalOptions)
-            {
-                buttonGroup.GetChild(currentOptionIndex).GetComponent<Button>().onClick.Invoke();
-            }
-        }
-        else if (DiaLogBar)
-        {
-            DiaLogBar = false;
-            if (Canvas.activeSelf)
-            {
-                ClearCanvas();
-                Canvas.SetActive(false);
-            }
-            model.input.ChangeState(InputController.State.CharacterControl);
+            StopCoroutine(typewrite);
+            dialogText.maxVisibleCharacters = dialogText.textInfo.characterCount;
+            complete = true;
         }
         else
         {
-            ShowDiaLogRow();
+            if (totalOptions > 0)
+            {
+                if (currentOptionIndex >= 0 && currentOptionIndex <= totalOptions)
+                {
+                    buttonGroup.GetChild(currentOptionIndex).GetComponent<Button>().onClick.Invoke();
+                }
+            }
+            else if (DiaLogBar)
+            {
+                DiaLogBar = false;
+                if (Canvas.activeSelf)
+                {
+                    ClearCanvas();
+                    Canvas.SetActive(false);
+                }
+                model.input.ChangeState(InputController.State.CharacterControl);
+            }
+            else
+            {
+                ShowDiaLogRow();
+            }
         }
     }
     private void HighlightOption(int index,float color = 1f)

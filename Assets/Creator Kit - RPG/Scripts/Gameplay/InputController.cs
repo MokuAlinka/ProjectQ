@@ -85,7 +85,8 @@ namespace RPGM.UI
 
             if (Input.GetKeyDown(KeyCode.B))
             {
-                model.packageManager.LoadItemsList();
+                model.packageManager.PackageChange();
+                ChangeState(InputController.State.PackageControl);
             }
         }
         void PackageControl()
@@ -95,14 +96,19 @@ namespace RPGM.UI
                 model.packageManager.HorizontalSelection(-1);
             else if (Input.GetKeyDown(KeyCode.RightArrow))
                 model.packageManager.HorizontalSelection(1);
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKey(KeyCode.UpArrow))
                 model.packageManager.VerticalSelection(-1);
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.DownArrow))
                 model.packageManager.VerticalSelection(1);
             if (Input.GetKeyDown(KeyCode.Z))
                 model.packageManager.ConfirmOption();
             else if (Input.GetKeyDown(KeyCode.X))
                 model.packageManager.DisableOption();
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                model.packageManager.PackageChange();
+                ChangeState(InputController.State.CharacterControl);
+            }       
         }
     }
 }

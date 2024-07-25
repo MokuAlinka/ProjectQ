@@ -6,6 +6,7 @@ using RPGM.Core;
 using RPGM.Gameplay;
 using RPGM.UI;
 using UnityEngine;
+using static UnityEditor.Timeline.Actions.MenuPriority;
 
 namespace RPGM.Gameplay
 {
@@ -63,6 +64,7 @@ namespace RPGM.Gameplay
             innerDict["Sprite_real"] = item.Sprite_real;
             innerDict["ID"]= item.ID;
             innerDict["ShowInPackage"] = item.ShowInPackage;
+
             if (itemData.TryGetValue(item.ItemName, out Dictionary<string, object> c))
             {
                 c.TryGetValue("Count", out object cont);
@@ -75,6 +77,7 @@ namespace RPGM.Gameplay
             
             // 将内部字典添加到外部字典中
             itemData[item.ItemName] = innerDict;
+            packageManager.AddItem(item.ItemName);
         }
 
         public bool HasInventoryItem(string name, int count = 1)

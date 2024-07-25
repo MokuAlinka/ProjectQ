@@ -12,12 +12,14 @@ using static System.TimeZoneInfo;
 public class PackageManager : MonoBehaviour
 {
     private int currentOption = 0;
-    private int totalOption = 0;
+    public int totalOption = 0;
     public GameObject PackageCanvas;
     public Transform Group_1_buttonGroup;
     public GameObject Group_2_package;
     public Transform package_buttonGroup;
     public GameObject package_ItemButton;
+    public ScrollRect scrollRect;
+    public float scrollDistance = 50f;
 
     public RectTransform Kard; // UI元素
     public GameObject startObject;  // 起始位置的GameObject
@@ -68,14 +70,30 @@ public class PackageManager : MonoBehaviour
         Kard.localPosition = endPosition;
         Kard.localScale = endScale;
         Kard.localRotation = endRotation;
+        reverse = !reverse;
     }
     public void HorizontalSelection(int direction)
     {
-
+        if (totalOption != 0)
+        {
+            currentOption += direction;
+            if (currentOption < 0)
+            {
+                currentOption = totalOption - 1;
+            }
+            else if (currentOption >= totalOption)
+            {
+                currentOption = 0;
+            }
+            if (package_buttonGroup.childCount > 0)
+            {
+                package_buttonGroup.GetChild(currentOption).GetComponent<Button>().onClick.Invoke();
+            }
+        }
     }
     public void VerticalSelection(int direction)
     {
-
+        
     }
     public void ConfirmOption()
     {
@@ -87,28 +105,39 @@ public class PackageManager : MonoBehaviour
     }
     public void LoadItemsList()
     {
-        if (!PackageCanvas.activeSelf)
+        ClearItemsList();
+        totalOption = 0;
+        foreach (var item_name in model.GetItemsList())
         {
-            ClearItemsList();
-            foreach (var item_name in model.GetItemsList())
+            Dictionary<string, object> c = model.GetItemDic(item_name);
+            if ((bool)c["ShowInPackage"])
             {
-                Dictionary<string, object> c = model.GetItemDic(item_name);
                 GameObject button = Instantiate(package_ItemButton, package_buttonGroup);
                 button.GetComponentInChildren<TMP_Text>().text = item_name + "    *" + (int)c["Count"];
                 button.GetComponent<Button>().onClick.AddListener(delegate { LoadItem(item_name, c); });
+                totalOption++;
             }
+        }
+        if (currentOption > totalOption)
+        {
+            currentOption = totalOption;
+        }
+    }
+    public void AddItem(string name)
+    {
+        Dictionary<string, object> c = model.GetItemDic(name);
+        if ((bool)c["ShowInPackage"])
+        {
+            GameObject button = Instantiate(package_ItemButton, package_buttonGroup);
+            button.GetComponentInChildren<TMP_Text>().text = name + "    *" + (int)c["Count"];
+            button.GetComponent<Button>().onClick.AddListener(delegate { LoadItem(name, c); });
+            button.transform.SetSiblingIndex(currentOption);
+            totalOption++;
             if (package_buttonGroup.childCount > 0)
             {
-                package_buttonGroup.GetChild(0).GetComponent<Button>().onClick.Invoke();
+                package_buttonGroup.GetChild(currentOption).GetComponent<Button>().onClick.Invoke();
             }
-            PackageCanvas.SetActive(true);
-            StartCoroutine(TransitionUI(startObject, endObject));
         }
-        else
-        {
-            PackageCanvas.SetActive(false);
-        }
-        
     }
     public void LoadItem(string itemName,Dictionary<string, object> itemDate)
     {
@@ -123,6 +152,20 @@ public class PackageManager : MonoBehaviour
             for (int i = 0; i < package_buttonGroup.childCount; i++)
             {
                 Destroy(package_buttonGroup.GetChild(i).gameObject);
+            }
+        }
+    }
+    public void PackageChange()
+    {
+        if (!isTransition)
+        {
+            if (!reverse)
+            {
+                StartCoroutine(TransitionUI(startObject,endObject));
+            }
+            else
+            {
+                StartCoroutine(TransitionUI(endObject,startObject));
             }
         }
     }
