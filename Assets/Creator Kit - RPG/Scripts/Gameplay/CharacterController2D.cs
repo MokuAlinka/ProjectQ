@@ -17,6 +17,7 @@ namespace RPGM.Gameplay
         public Vector3 nextMoveCommand;
         public Animator animator;
         public List<Tilemap> tilemaps;
+        public bool hasWallTile;
 
         new Rigidbody2D rigidbody2D;
         SpriteRenderer spriteRenderer;
@@ -112,18 +113,24 @@ namespace RPGM.Gameplay
         bool IsWall(Vector3 targetPosition)
         {
             // 将目标位置转换为瓦片地图的网格位置
+            float detectionRadius = 0.1f;
             Vector3Int cellPosition = tilemaps[0].WorldToCell(targetPosition);
+            
             // 检查该位置是否有瓦片（即墙壁）
             foreach (var tilemap in tilemaps)
             {
                 if (tilemap.GetTile(cellPosition) != null)
                 {
-                    Debug.Log(tilemap.GetTile(cellPosition));
-                    return true;
+                    Collider2D collider = Physics2D.OverlapPoint(targetPosition);
+                    if (collider != null)
+                    {
+                        return true;
+                    }
+                
                 }
             }
-            Debug.Log("No WallTilemap");
             return false;
         }
+
     }
 }

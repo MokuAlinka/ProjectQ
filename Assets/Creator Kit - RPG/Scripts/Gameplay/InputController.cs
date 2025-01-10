@@ -20,7 +20,7 @@ namespace RPGM.UI
             Pause
         }
 
-        State state;
+        public State state { get; private set; }
 
         public void ChangeState(State state) => this.state = state;
 
@@ -88,6 +88,7 @@ namespace RPGM.UI
                 model.packageManager.PackageChange();
                 ChangeState(InputController.State.PackageControl);
             }
+
         }
         void PackageControl()
         {

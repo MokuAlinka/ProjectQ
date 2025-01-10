@@ -12,18 +12,34 @@ namespace RPGM.Gameplay
     public class CameraController : MonoBehaviour
     {
         public Transform focus;
+        public Transform NormalTarget;
         public float smoothTime = 2;
 
         Vector3 offset;
 
+        public void SetFocus(Transform newFocus)
+        {
+            focus = newFocus;
+        }
+
         void Awake()
         {
-            offset = focus.position - transform.position;
+            if (focus != null)
+            {
+                offset = focus.position - transform.position;
+            }
+            else if (NormalTarget != null)
+            {
+                focus = NormalTarget;
+            }
         }
 
         void Update()
         {
-            transform.position = Vector3.Lerp(transform.position, focus.position - offset, Time.deltaTime * smoothTime);
+            if (focus != null)
+            {
+                transform.position = Vector3.Lerp(transform.position, focus.position - offset, Time.deltaTime * smoothTime);
+            }
         }
     }
 }

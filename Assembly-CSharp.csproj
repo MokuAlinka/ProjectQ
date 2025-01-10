@@ -100,6 +100,7 @@
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\CloudSystem.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\ConversationScript.cs" />
     <Compile Include="Assets\Creator Kit - RPG\Scripts\Gameplay\FadingSprite.cs" />
+    <Compile Include="Assets\Scenes\Scripts\SceneTigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
